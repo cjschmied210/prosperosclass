@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useAuth } from '@/components/AuthProvider';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import { getBehaviorsByTeacher, deleteBehavior } from '@/lib/firestore';
 import { Behavior } from '@/types';
 import BehaviorForm from '@/components/BehaviorForm';
@@ -14,7 +14,9 @@ interface BehaviorsPageProps {
     };
 }
 
-export default function BehaviorsPage({ params }: BehaviorsPageProps) {
+export default function BehaviorsPage() {
+    const params = useParams();
+    const classId = params?.classId as string;
     const { user, loading: authLoading } = useAuth();
     const router = useRouter();
     const [behaviors, setBehaviors] = useState<Behavior[]>([]);
@@ -77,7 +79,7 @@ export default function BehaviorsPage({ params }: BehaviorsPageProps) {
             {/* Header */}
             <div className="mb-8">
                 <Link
-                    href={`/classes/${params.classId}`}
+                    href={`/classes/${classId}`}
                     className="text-sm text-primary hover:underline mb-2 inline-block"
                 >
                     ← Back to Class
