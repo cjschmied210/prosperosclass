@@ -120,9 +120,9 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
 
     return (
         <>
-            <div 
+            <div
                 ref={focusZoneRef}
-                className={`flex-1 focus-zone p-6 ${isProjectionMode ? 'bg-slate-900 overflow-hidden flex flex-col h-screen w-screen' : ''}`}
+                className={`flex-1 focus-zone p-6 overflow-y-auto ${isProjectionMode ? 'bg-slate-900 overflow-hidden flex flex-col h-screen w-screen' : ''}`}
             >
                 <div className="mb-6 flex justify-between items-start">
                     <div>
@@ -137,7 +137,7 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
                         title={isProjectionMode ? "Exit Projection Mode" : "Enter Projection Mode"}
                     >
                         {isProjectionMode ? (
-                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         ) : (
@@ -173,7 +173,7 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
                         </div>
                     </div>
                 ) : (
-                    <div 
+                    <div
                         className={`grid gap-4 ${isProjectionMode ? 'h-full grid-flow-row' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}
                         style={isProjectionMode ? getProjectionGridStyle() : {}}
                     >
