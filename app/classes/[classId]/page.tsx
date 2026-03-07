@@ -199,77 +199,75 @@ export default function ClassDetailPage() {
     return (
         <div className="h-[calc(100vh-101px)] flex flex-col bg-surface">
             {error && (
-                <div className="bg-red-50 border-b border-red-200 px-6 py-3">
-                    <p className="text-red-600">{error}</p>
+                <div className="bg-rose-50 border-b border-rose-200 px-6 py-3">
+                    <p className="text-rose-600 font-medium">{error}</p>
                 </div>
             )}
 
-            {/* Context Bar (Class Header) */}
-            <div className="bg-white border-b border-gray-200 flex flex-col">
-                {/* Row 1: Class Info & Actions */}
-                <div className="px-6 py-6 flex items-center justify-between">
-                    {/* Left: Class Info */}
-                    <div className="flex items-baseline space-x-3">
-                        <h2 className="text-2xl font-bold text-gray-900">{classData.className}</h2>
-                        <span className="text-gray-500">
-                            {classData.period && `Period ${classData.period} • `}
-                            {students.length} students
-                        </span>
-                    </div>
-
-                    {/* Right: Actions */}
-                    <div className="flex items-center space-x-3">
-                        <button
-                            onClick={() => {
-                                setEditingStudent(null);
-                                setIsBulkImportMode(false);
-                                setShowStudentForm(true);
-                            }}
-                            className="text-sm text-primary hover:text-cyan-700 font-medium flex items-center space-x-1 transition-colors px-3 py-1.5 rounded-md hover:bg-cyan-50"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                            </svg>
-                            <span>Add Student</span>
-                        </button>
-
-                        <button
-                            onClick={() => router.push(`/classes/${classId}/behaviors`)}
-                            className="text-sm text-primary hover:text-cyan-700 font-medium flex items-center space-x-1 transition-colors px-3 py-1.5 rounded-md hover:bg-cyan-50"
-                        >
-                            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <span>Configure</span>
-                        </button>
-                    </div>
+            {/* Context Bar (Class Header) — single row */}
+            <div className="border-b border-amber-200/60 flex items-center justify-between relative z-20 shadow-sm px-6 py-2" style={{ background: '#f5ede3' }}>
+                {/* Left: Class Info */}
+                <div className="flex items-baseline space-x-3">
+                    <h2 className="text-xl font-display font-bold text-slate-900 tracking-tight">{classData.className}</h2>
+                    <span className="text-green-900 font-semibold bg-emerald-50 border border-emerald-200/60 px-3 py-1 rounded-full text-xs">
+                        {classData.period && `Period ${classData.period} • `}
+                        {students.length} students
+                    </span>
                 </div>
 
-                {/* Row 2: Tabs */}
-                <div className="px-6 flex items-center justify-between relative">
-                    <div className="flex space-x-8 translate-y-px">
-                        <button
-                            onClick={() => setCurrentView('monitoring')}
-                            className={`pb-3 text-sm font-medium border-b-2 transition-colors ${currentView === 'monitoring'
-                                ? 'border-primary text-primary'
-                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                                }`}
-                        >
-                            Live Monitoring
-                        </button>
-                        <button
-                            onClick={() => setCurrentView('analytics')}
-                            className={`pb-3 text-sm font-medium border-b-2 transition-colors ${currentView === 'analytics'
-                                ? 'border-primary text-primary'
-                                : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
-                                }`}
-                        >
-                            Data Analysis
-                        </button>
-                    </div>
+                {/* Center: View Tabs */}
+                <div className="flex items-center space-x-1 p-1 rounded-xl border border-amber-200/60" style={{ background: '#f5ede3' }}>
+                    <button
+                        onClick={() => setCurrentView('monitoring')}
+                        className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${currentView === 'monitoring'
+                            ? 'text-emerald-50 shadow-sm'
+                            : 'bg-emerald-50 text-green-900 hover:bg-emerald-100'
+                            }`}
+                        style={currentView === 'monitoring' ? { background: '#14291A' } : {}}
+                    >
+                        Live Monitoring
+                    </button>
+                    <button
+                        onClick={() => setCurrentView('analytics')}
+                        className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${currentView === 'analytics'
+                            ? 'text-emerald-50 shadow-sm'
+                            : 'bg-emerald-50 text-green-900 hover:bg-emerald-100'
+                            }`}
+                        style={currentView === 'analytics' ? { background: '#14291A' } : {}}
+                    >
+                        Data Analysis
+                    </button>
+                </div>
+
+                {/* Right: Actions */}
+                <div className="flex items-center space-x-3">
+                    <button
+                        onClick={() => {
+                            setEditingStudent(null);
+                            setIsBulkImportMode(false);
+                            setShowStudentForm(true);
+                        }}
+                        className="text-xs font-semibold flex items-center space-x-1 transition-all px-4 py-2 rounded-xl bg-emerald-50 text-green-900 border border-emerald-200/60 hover:brightness-95 hover:shadow-sm"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span>Add Student</span>
+                    </button>
+
+                    <button
+                        onClick={() => router.push(`/classes/${classId}/behaviors`)}
+                        className="text-xs font-semibold flex items-center space-x-1.5 transition-all px-4 py-2 rounded-xl bg-emerald-50 text-green-900 border border-emerald-200/60 hover:brightness-95"
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span>Configure</span>
+                    </button>
                 </div>
             </div>
+
 
             {/* Content Area - Conditional Rendering */}
             {currentView === 'monitoring' ? (
@@ -309,14 +307,14 @@ export default function ClassDetailPage() {
                 <div className="modal-overlay" onClick={() => setShowStudentForm(false)}>
                     <div className="modal-content p-6" onClick={(e) => e.stopPropagation()}>
                         <div className="flex justify-between items-center mb-6">
-                            <h2 className="text-2xl font-bold">
+                            <h2 className="text-2xl font-display font-bold text-slate-800 tracking-tight">
                                 {editingStudent ? 'Edit Student' : 'Add Student'}
                             </h2>
                             <button
                                 onClick={() => setShowStudentForm(false)}
-                                className="text-gray-400 hover:text-gray-600"
+                                className="text-slate-400 hover:text-slate-600 bg-slate-50 hover:bg-slate-100 rounded-full p-2 transition-colors"
                             >
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>

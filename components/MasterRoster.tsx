@@ -65,10 +65,10 @@ export default function MasterRoster({
     };
 
     return (
-        <div className="roster-sidebar w-80 p-5 flex flex-col h-full relative">
-            <div className="mb-5 flex-shrink-0">
-                <h2 className="text-xl font-display font-bold text-slate-800 tracking-tight">Master Roster</h2>
-                <p className="text-sm text-slate-500 font-medium mb-4">
+        <div className="roster-sidebar w-64 p-3 flex flex-col h-full relative">
+            <div className="mb-3 flex-shrink-0">
+                <h2 className="text-base font-display font-bold text-white tracking-tight">Master Roster</h2>
+                <p className="text-xs text-white/60 font-medium mb-2">
                     {isDeleteMode ? 'Select a student to remove' : 'Select students to monitor'}
                 </p>
 
@@ -79,7 +79,7 @@ export default function MasterRoster({
                         placeholder="Search students..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="input text-sm"
+                        className="w-full px-3 py-1.5 text-sm rounded-lg bg-amber-900/40 border border-amber-700/40 text-gray-400 placeholder-gray-400/60 focus:outline-none focus:ring-1 focus:ring-amber-500/50"
                     />
                     <svg
                         className="w-5 h-5 text-gray-400 absolute right-3 top-2.5"

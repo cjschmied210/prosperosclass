@@ -123,7 +123,8 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
         <>
             <div
                 ref={focusZoneRef}
-                className={`flex-1 focus-zone p-6 overflow-y-auto ${isProjectionMode ? 'bg-slate-900 overflow-hidden flex flex-col h-screen w-screen' : ''}`}
+                className={`flex-1 focus-zone p-6 overflow-y-auto ${isProjectionMode ? 'flex flex-col h-screen w-screen pb-20' : ''}`}
+                style={isProjectionMode ? { background: 'linear-gradient(135deg, #14291A 0%, #1a3320 100%)' } : {}}
             >
                 <div className="mb-6 flex justify-between items-start relative z-10">
                     <div>
@@ -227,7 +228,7 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
 
                 {/* Watermark footer — only visible in fullscreen (layout footer is excluded by the Fullscreen API) */}
                 {isProjectionMode && (
-                    <div className="absolute bottom-0 left-0 w-full bg-white border-t border-slate-200 py-3 flex justify-center items-center z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+                    <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 py-3 flex justify-center items-center z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
                         <Image
                             src="/Built at Bridgeview2.png"
                             alt="Built at Bridgeview"
