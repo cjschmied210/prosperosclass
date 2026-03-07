@@ -123,19 +123,19 @@ export default function FocusZone({ students, onRemoveStudent, classId, onStuden
         <>
             <div
                 ref={focusZoneRef}
-                className={`flex-1 focus-zone p-6 overflow-y-auto ${isProjectionMode ? 'flex flex-col h-screen w-screen pb-20' : ''}`}
+                className={`flex-1 focus-zone p-6 overflow-y-auto ${isProjectionMode ? 'flex flex-col h-screen w-screen pb-20' : ''} bg-[#14291A]`}
                 style={isProjectionMode ? { background: 'linear-gradient(135deg, #14291A 0%, #1a3320 100%)' } : {}}
             >
                 <div className="mb-6 flex justify-between items-start relative z-10">
                     <div>
-                        <h2 className="text-3xl font-display font-bold text-white mb-1 drop-shadow-sm">Focus Zone</h2>
-                        <p className="text-white/80 font-medium tracking-wide text-sm">
+                        <h2 className="text-3xl font-display font-bold text-emerald-50 mb-1 drop-shadow-sm">Focus Zone</h2>
+                        <p className="text-emerald-100/80 font-medium tracking-wide text-sm">
                             {students.length} MONITORING
                         </p>
                     </div>
                     <button
                         onClick={toggleProjection}
-                        className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors"
+                        className="p-2 bg-white/10 hover:bg-white/20 rounded-lg text-white transition-colors border border-white/20"
                         title={isProjectionMode ? "Exit Projection Mode" : "Enter Projection Mode"}
                     >
                         {isProjectionMode ? (

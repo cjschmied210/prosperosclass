@@ -13,9 +13,9 @@ interface StudentCardProps {
 export default function StudentCard({ student, variant, behaviors = [], onQuickLog }: StudentCardProps) {
     const [justLogged, setJustLogged] = useState<string | null>(null);
 
-    const baseClasses = 'student-card';
+    const baseClasses = 'student-card p-4 rounded-2xl flex flex-col justify-between';
     const variantClasses = variant === 'focus'
-        ? 'student-card-focus'
+        ? 'bg-[#f5ede3] border border-amber-200/60 shadow-soft hover:shadow-md transition-shadow'
         : 'bg-white hover:bg-slate-50 border border-transparent hover:border-primary/30 hover:shadow-soft';
 
     const getInitials = (firstName: string, lastName: string) => {
@@ -50,8 +50,8 @@ export default function StudentCard({ student, variant, behaviors = [], onQuickL
         <div className={`${baseClasses} ${variantClasses}`}>
             <div className="flex items-center space-x-3">
                 {/* Avatar */}
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white ${variant === 'focus'
-                    ? 'bg-gradient-to-br from-primary to-accent'
+                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white shadow-soft ${variant === 'focus'
+                    ? 'bg-gradient-to-br from-[#14291A] to-[#1a3320]'
                     : 'bg-gradient-to-br from-gray-400 to-gray-600'
                     }`}>
                     {getInitials(student.firstName, student.lastName)}
@@ -59,7 +59,7 @@ export default function StudentCard({ student, variant, behaviors = [], onQuickL
 
                 {/* Student Info */}
                 <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-slate-800 truncate">
+                    <h3 className="font-bold text-slate-800 text-lg tracking-tight truncate">
                         {student.firstName} {student.lastName}
                     </h3>
                     {student.grade && (
@@ -95,9 +95,9 @@ export default function StudentCard({ student, variant, behaviors = [], onQuickL
                                 <button
                                     key={behavior.behaviorId}
                                     onClick={(e) => handleQuickLog(behavior.behaviorId, e)}
-                                    className={`flex-1 px-3 py-2 rounded-xl text-sm font-semibold transition-all text-center justify-center items-center flex ${isPositive
-                                        ? 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-100 shadow-sm'
-                                        : 'bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-100 shadow-sm'
+                                    className={`flex-1 px-3 py-2 rounded-xl text-sm font-bold transition-all text-center justify-center items-center flex ${isPositive
+                                        ? 'bg-[#14291A] text-emerald-50 hover:bg-[#1a3320] border border-[#14291A] shadow-soft'
+                                        : 'bg-rose-900 text-rose-50 hover:bg-rose-800 border border-rose-900 shadow-soft'
                                         } ${isJustLogged ? 'ring-2 ring-primary scale-105 shadow-md' : 'hover:-translate-y-0.5 hover:shadow-md'}`}
                                     title={behavior.description || behavior.name}
                                 >
