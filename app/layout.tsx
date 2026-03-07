@@ -19,7 +19,7 @@ export default function RootLayout({
             <body>
                 <AuthProvider>
                     <Navbar />
-                    <main className="pb-24 pt-6 w-full">{children}</main>
+                    <main className="pb-24 w-full">{children}</main>
                     <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 z-50 py-3 flex justify-center items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
                         <Image
                             src="/Built at Bridgeview2.png"
