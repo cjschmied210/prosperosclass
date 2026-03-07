@@ -16,7 +16,7 @@ export default function StudentCard({ student, variant, behaviors = [], onQuickL
     const baseClasses = 'student-card p-4 rounded-2xl flex flex-col justify-between';
     const variantClasses = variant === 'focus'
         ? 'bg-[#f5ede3] border border-amber-200/60 shadow-soft hover:shadow-md transition-shadow'
-        : 'bg-white hover:bg-slate-50 border border-transparent hover:border-primary/30 hover:shadow-soft';
+        : 'bg-[#f5ede3] hover:bg-[#efe5d9] border border-transparent hover:border-primary/30 hover:shadow-soft';
 
     const getInitials = (firstName: string, lastName: string) => {
         return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
