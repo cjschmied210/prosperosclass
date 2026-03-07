@@ -135,7 +135,7 @@ export default function MasterRoster({
                                     </button>
 
                                     {/* Add Button */}
-                                    <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent text-white rounded-full flex items-center justify-center shadow-md">
+                                    <div className="w-8 h-8 bg-gradient-to-br from-stone-500 to-amber-800 text-white rounded-full flex items-center justify-center shadow-md">
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                                         </svg>
@@ -199,7 +199,7 @@ export default function MasterRoster({
                         onClick={() => setIsDeleteMode(!isDeleteMode)}
                         className={`w-full flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${isDeleteMode
                             ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                            : 'text-red-600 hover:bg-red-50'
+                            : 'text-white/80 hover:bg-white/10 hover:text-white'
                             }`}
                     >
                         {isDeleteMode ? (

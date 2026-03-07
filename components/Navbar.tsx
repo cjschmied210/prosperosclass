@@ -43,7 +43,7 @@ export default function Navbar() {
                                 </div>
 
                                 {/* Avatar Circle */}
-                                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center text-sm font-bold shadow-soft group-hover:shadow-glow transition-all ring-2 ring-transparent group-hover:ring-primary/20">
+                                <div className="h-10 w-10 rounded-full bg-gradient-to-br from-stone-500 to-amber-800 text-white flex items-center justify-center text-sm font-bold shadow-soft group-hover:shadow-md transition-all ring-2 ring-transparent group-hover:ring-amber-800/20">
                                     {user.displayName
                                         ? user.displayName.split(' ').map((n: string) => n[0]).join('').toUpperCase().substring(0, 2)
                                         : 'U'}
