@@ -137,17 +137,17 @@ export default function DataAnalysisView({
     const selectedStudent = students.find(s => s.studentId === selectedStudentId);
 
     return (
-        <div className="h-full flex flex-col bg-surface">
+        <div className="h-full flex flex-col bg-[#14291A]">
             {/* Filter Bar */}
-            <div className="bg-white/95 backdrop-blur-md border-b border-slate-100 px-6 py-4 flex items-center justify-between sticky top-0 z-10 shadow-sm">
+            <div className="bg-[#14291A] border-b border-white/10 px-6 py-4 flex items-center justify-between sticky top-0 z-10 shadow-sm transition-colors backdrop-blur-md">
                 <div className="flex items-center space-x-4">
-                    <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Filter Data:</span>
+                    <span className="text-sm font-semibold text-emerald-100/60 uppercase tracking-wider">Filter Data:</span>
 
                     {/* Student Selector */}
                     <select
                         value={selectedStudentId}
                         onChange={(e) => onStudentChange(e.target.value)}
-                        className="text-sm border-gray-300 rounded-md focus:ring-primary focus:border-primary py-1.5 pl-3 pr-8 min-w-[200px]"
+                        className="text-sm bg-white/10 text-white border-white/20 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 py-1.5 pl-3 pr-8 min-w-[200px]"
                     >
                         <option value="">Class Overview (All Students)</option>
                         {students.map((s) => (
@@ -159,14 +159,14 @@ export default function DataAnalysisView({
                 </div>
 
                 {/* Time Range */}
-                <div className="flex items-center space-x-1 bg-slate-100/80 p-1.5 rounded-xl border border-slate-200/60 shadow-inner">
+                <div className="flex items-center space-x-1 bg-white/5 p-1.5 rounded-xl border border-white/10 shadow-inner">
                     {(['week', 'month', '3months', 'all'] as const).map((range) => (
                         <button
                             key={range}
                             onClick={() => onDateRangeChange(range)}
                             className={`px-4 py-1.5 rounded-lg text-xs font-semibold transition-all ${dateRange === range
-                                ? 'bg-white text-primary shadow-sm ring-1 ring-slate-200 border border-white'
-                                : 'text-slate-500 hover:text-slate-800 hover:bg-white/50'
+                                ? 'bg-[#f5ede3] text-green-900 shadow-sm'
+                                : 'text-emerald-100/60 hover:text-white hover:bg-white/5'
                                 }`}
                         >
                             {range === 'week' ? '1W' : range === 'month' ? '1M' : range === '3months' ? '3M' : 'All'}
@@ -176,15 +176,16 @@ export default function DataAnalysisView({
             </div>
 
             {/* Content Area */}
-            <div className="flex-1 overflow-y-auto p-6">
+            <div className="flex-1 overflow-y-auto p-6 custom-scrollbar">
                 {loading ? (
                     <div className="flex items-center justify-center h-full">
-                        <div className="text-lg text-gray-600">Loading data...</div>
+                        <div className="text-lg text-emerald-100/40 animate-pulse">Loading data...</div>
                     </div>
                 ) : (
                     <div className="space-y-6">
                         {/* Header Card */}
-                        <div className="bg-white border border-slate-100 rounded-2xl p-8 shadow-soft">
+                        <div className="bg-[#f5ede3] border border-amber-200/60 rounded-2xl p-8 shadow-soft relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-green-900/5 rounded-full -mr-16 -mt-16 pointer-events-none"></div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-5">
                                     {selectedStudent ? (
@@ -203,16 +204,16 @@ export default function DataAnalysisView({
                                         </>
                                     ) : (
                                         <>
-                                            <div className="w-20 h-20 bg-gradient-to-br from-slate-700 to-slate-900 rounded-full flex items-center justify-center font-bold text-white shadow-soft ring-4 ring-slate-100">
-                                                <svg className="w-10 h-10 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <div className="w-20 h-20 bg-gradient-to-br from-stone-500 to-amber-800 rounded-full flex items-center justify-center font-bold text-white shadow-soft ring-4 ring-white/20">
+                                                <svg className="w-10 h-10 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                                                 </svg>
                                             </div>
                                             <div>
-                                                <h2 className="text-3xl font-display font-bold text-slate-900 tracking-tight">
+                                                <h2 className="text-3xl font-display font-bold text-green-900 tracking-tight">
                                                     Class Overview
                                                 </h2>
-                                                <p className="text-slate-500 font-medium">Aggregate data for all students</p>
+                                                <p className="text-green-800/60 font-medium">Aggregate data for all students</p>
                                             </div>
                                         </>
                                     )}
@@ -224,9 +225,9 @@ export default function DataAnalysisView({
                                             setFocusedBehaviorId(undefined);
                                             setIsEmailModalOpen(true);
                                         }}
-                                        className="flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary"
+                                        className="flex items-center px-4 py-2 bg-white/50 backdrop-blur-sm border border-amber-200/60 rounded-xl shadow-sm text-sm font-semibold text-green-900 hover:bg-white transition-all hover:shadow-md"
                                     >
-                                        <svg className="w-5 h-5 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <svg className="w-5 h-5 mr-2 text-green-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                         Email Report
@@ -247,7 +248,7 @@ export default function DataAnalysisView({
 
                         {/* Behavior Log Table */}
                         <div>
-                            <h3 className="text-lg font-semibold mb-4">Behavior Log</h3>
+                            <h3 className="text-lg font-display font-bold mb-4 text-emerald-100/90 tracking-tight">Behavior Log</h3>
                             <BehaviorLogTable
                                 incidents={incidents}
                                 behaviors={behaviors}

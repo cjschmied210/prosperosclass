@@ -145,24 +145,24 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
     return (
         <div className="space-y-6">
             {/* Compact Summary Bar */}
-            <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-2xl shadow-sm px-6 py-4 flex items-center justify-between relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 pointer-events-none"></div>
+            <div className="bg-[#f5ede3] border border-amber-200/60 rounded-2xl shadow-sm px-6 py-4 flex items-center justify-between relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-stone-500/5 to-amber-800/5 pointer-events-none"></div>
                 <div className="flex items-center space-x-8 relative z-10">
                     <div className="flex items-center space-x-2">
-                        <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Total Events:</span>
-                        <span className="text-xl font-display font-bold text-slate-900">{totalIncidents}</span>
+                        <span className="text-sm font-semibold text-green-900/60 uppercase tracking-wider">Total Events:</span>
+                        <span className="text-xl font-display font-bold text-green-900">{totalIncidents}</span>
                     </div>
                     {selectedBehaviorId === 'all' && (
                         <>
-                            <div className="h-6 w-px bg-slate-200"></div>
+                            <div className="h-6 w-px bg-amber-200/60"></div>
                             <div className="flex items-center space-x-2">
-                                <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Positive:</span>
-                                <span className="text-xl font-display font-bold text-emerald-600 drop-shadow-sm">{positiveCount}</span>
+                                <span className="text-sm font-semibold text-green-900/60 uppercase tracking-wider">Positive:</span>
+                                <span className="text-xl font-display font-bold text-emerald-700 drop-shadow-sm">{positiveCount}</span>
                             </div>
-                            <div className="h-6 w-px bg-slate-200"></div>
+                            <div className="h-6 w-px bg-amber-200/60"></div>
                             <div className="flex items-center space-x-2">
-                                <span className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Negative:</span>
-                                <span className="text-xl font-display font-bold text-rose-600 drop-shadow-sm">{negativeCount}</span>
+                                <span className="text-sm font-semibold text-green-900/60 uppercase tracking-wider">Negative:</span>
+                                <span className="text-xl font-display font-bold text-rose-700 drop-shadow-sm">{negativeCount}</span>
                             </div>
                         </>
                     )}
@@ -173,15 +173,15 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
             {/* Charts Grid */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Behavior Trends Over Time */}
-                <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-2xl shadow-floating p-6 lg:col-span-2 relative overflow-hidden group" ref={lineChartRef}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent pointer-events-none"></div>
+                <div className="bg-[#f5ede3] border border-amber-200/60 rounded-2xl shadow-floating p-6 lg:col-span-2 relative overflow-hidden group" ref={lineChartRef}>
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent pointer-events-none"></div>
                     <div className="flex items-center justify-between mb-6 relative z-10">
                         <div className="flex items-center space-x-3">
-                            <h3 className="text-lg font-display font-bold text-slate-800 tracking-tight">Trend:</h3>
+                            <h3 className="text-lg font-display font-bold text-green-900 tracking-tight">Trend:</h3>
                             <select
                                 value={selectedBehaviorId}
                                 onChange={(e) => setSelectedBehaviorId(e.target.value)}
-                                className="text-sm font-semibold text-primary bg-primary/5 hover:bg-primary/10 border-transparent rounded-lg focus:ring-2 focus:ring-primary/50 focus:border-primary transition-colors py-1.5 pl-3 pr-8 cursor-pointer shadow-sm"
+                                className="text-sm font-semibold text-white bg-green-900 hover:bg-green-800 border-transparent rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors py-1.5 pl-3 pr-8 cursor-pointer shadow-sm"
                             >
                                 <option value="all">All Behaviors</option>
                                 {behaviors.map(b => (
@@ -193,10 +193,10 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
                             {onGenerateReport && (
                                 <button
                                     onClick={() => onGenerateReport(selectedBehaviorId === 'all' ? undefined : selectedBehaviorId)}
-                                    className="text-xs font-semibold flex items-center px-3 py-1.5 rounded-lg border border-slate-200 bg-white text-slate-600 hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:translate-y-px"
+                                    className="text-xs font-semibold flex items-center px-3 py-1.5 rounded-lg border border-amber-200/60 bg-white/50 text-green-900 hover:bg-white transition-all shadow-sm active:translate-y-px"
                                     title="Draft email about this data"
                                 >
-                                    <svg className="w-3.5 h-3.5 mr-1.5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-3.5 h-3.5 mr-1.5 text-stone-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                     </svg>
                                     Draft Email
@@ -206,7 +206,7 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
                                 onClick={handleCopyChart}
                                 className={`text-xs font-semibold flex items-center px-3 py-1.5 rounded-lg border transition-all shadow-sm active:translate-y-px ${copySuccess
                                     ? 'bg-emerald-50 text-emerald-700 border-emerald-200 shadow-none'
-                                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300'
+                                    : 'bg-white/50 text-green-900 border-amber-200/60 hover:bg-white hover:border-amber-300'
                                     }`}
                                 title="Copy chart to clipboard"
                             >
@@ -229,7 +229,7 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
                             {selectedBehaviorId !== 'all' && (
                                 <button
                                     onClick={() => setSelectedBehaviorId('all')}
-                                    className="text-xs font-semibold text-slate-500 hover:text-primary flex items-center bg-slate-100 hover:bg-slate-200/80 px-3 py-1.5 rounded-lg transition-colors border border-transparent shadow-inner"
+                                    className="text-xs font-semibold text-green-900/60 hover:text-green-900 flex items-center bg-green-900/5 hover:bg-green-900/10 px-3 py-1.5 rounded-lg transition-colors border border-transparent"
                                 >
                                     <span>Show All</span>
                                     <svg className="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,9 +264,9 @@ export default function BehaviorCharts({ incidents, behaviors, onGenerateReport 
                 </div>
 
                 {/* Behavior Distribution */}
-                <div className="bg-white/90 backdrop-blur-xl border border-white/60 rounded-2xl shadow-floating p-6 lg:col-span-1 relative overflow-hidden transition-all group hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
-                    <div className="absolute inset-0 bg-gradient-to-bl from-white/40 to-transparent pointer-events-none"></div>
-                    <h3 className="text-lg font-display font-bold text-slate-800 mb-6 relative z-10 tracking-tight">Behavior Distribution</h3>
+                <div className="bg-[#f5ede3] border border-amber-200/60 rounded-2xl shadow-floating p-6 lg:col-span-1 relative overflow-hidden transition-all group hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)]">
+                    <div className="absolute inset-0 bg-gradient-to-bl from-white/20 to-transparent pointer-events-none"></div>
+                    <h3 className="text-lg font-display font-bold text-green-900 mb-6 relative z-10 tracking-tight">Behavior Distribution</h3>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart
                             data={behaviorTypeData}

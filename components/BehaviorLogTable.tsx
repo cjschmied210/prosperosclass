@@ -38,37 +38,37 @@ export default function BehaviorLogTable({ incidents, behaviors, onIncidentDelet
 
     if (incidents.length === 0) {
         return (
-            <div className="bg-white/80 backdrop-blur-sm border border-slate-100 rounded-2xl p-12 text-center shadow-sm">
-                <div className="text-slate-300 mb-4">
+            <div className="bg-[#f5ede3]/80 backdrop-blur-sm border border-amber-200/60 rounded-2xl p-12 text-center shadow-sm">
+                <div className="text-green-900/20 mb-4">
                     <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
-                <p className="text-slate-800 font-display font-medium text-lg">No behaviors logged yet</p>
-                <p className="text-sm text-slate-500 mt-2">Behavior logs will appear here once you start tracking</p>
+                <p className="text-green-900 font-display font-medium text-lg">No behaviors logged yet</p>
+                <p className="text-sm text-green-800/60 mt-2">Behavior logs will appear here once you start tracking</p>
             </div>
         );
     }
 
     return (
-        <div className="bg-white/60 backdrop-blur-md border border-slate-100 rounded-2xl overflow-hidden shadow-sm">
+        <div className="bg-[#f5ede3] border border-amber-200/60 rounded-2xl overflow-hidden shadow-sm">
             <div className="overflow-x-auto">
                 <table className="w-full">
-                    <thead className="bg-slate-50/80 border-b border-slate-100">
+                    <thead className="bg-green-900/5 border-b border-amber-200/60">
                         <tr>
-                            <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="px-6 py-4 text-left text-xs font-semibold text-green-900/60 uppercase tracking-wider">
                                 Date & Time
                             </th>
-                            <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="px-6 py-4 text-left text-xs font-semibold text-green-900/60 uppercase tracking-wider">
                                 Behavior
                             </th>
-                            <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="px-6 py-4 text-left text-xs font-semibold text-green-900/60 uppercase tracking-wider">
                                 Type
                             </th>
-                            <th className="px-6 py-4 text-left text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="px-6 py-4 text-left text-xs font-semibold text-green-900/60 uppercase tracking-wider">
                                 Notes
                             </th>
-                            <th className="px-6 py-4 text-right text-xs font-semibold text-slate-500 uppercase tracking-wider">
+                            <th className="px-6 py-4 text-right text-xs font-semibold text-green-900/60 uppercase tracking-wider">
                                 Actions
                             </th>
                         </tr>
@@ -80,28 +80,28 @@ export default function BehaviorLogTable({ incidents, behaviors, onIncidentDelet
                             const isDeleting = deletingId === incident.incidentId;
 
                             return (
-                                <tr key={incident.incidentId} className="hover:bg-slate-50/50 transition-colors">
-                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-slate-900 font-medium">
+                                <tr key={incident.incidentId} className="hover:bg-white/40 transition-colors">
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-green-900 font-medium">
                                         <div>{format(incident.timestamp, 'MMM dd, yyyy')}</div>
-                                        <div className="text-xs text-slate-500 mt-0.5">{format(incident.timestamp, 'h:mm a')}</div>
+                                        <div className="text-xs text-green-800/50 mt-0.5">{format(incident.timestamp, 'h:mm a')}</div>
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-sm font-semibold text-slate-800">
+                                        <div className="text-sm font-semibold text-green-900">
                                             {behavior?.name || 'Unknown'}
                                         </div>
                                         {behavior?.description && (
-                                            <div className="text-xs text-slate-500 mt-0.5">{behavior.description}</div>
+                                            <div className="text-xs text-green-800/50 mt-0.5">{behavior.description}</div>
                                         )}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                                         <span className={`inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold border ${isPositive
-                                            ? 'bg-emerald-50 text-emerald-700 border-emerald-100'
-                                            : 'bg-rose-50 text-rose-700 border-rose-100'
+                                            ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
+                                            : 'bg-rose-100 text-rose-800 border-rose-200'
                                             }`}>
                                             {isPositive ? '✓ Positive' : '✗ Negative'}
                                         </span>
                                     </td>
-                                    <td className="px-6 py-4 text-sm text-slate-600 max-w-xs truncate">
+                                    <td className="px-6 py-4 text-sm text-green-800/70 max-w-xs truncate">
                                         {incident.notes || '—'}
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm">
