@@ -23,7 +23,7 @@ export default function Navbar() {
                     {/* Logo and Title */}
                     <Link href="/" className="flex items-center space-x-2">
                         <Image
-                            src="/prospero-logo.png"
+                            src="/prospero-logo-transparent.png"
                             alt="Prospero Logo"
                             width={240}
                             height={80}
