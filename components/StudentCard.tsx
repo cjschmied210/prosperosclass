@@ -52,7 +52,7 @@ export default function StudentCard({ student, variant, behaviors = [], onQuickL
                 {/* Avatar */}
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center font-bold text-white shadow-soft ${variant === 'focus'
                     ? 'bg-gradient-to-br from-[#14291A] to-[#1a3320]'
-                    : 'bg-gradient-to-br from-gray-400 to-gray-600'
+                    : 'bg-gradient-to-br from-stone-500 to-amber-800'
                     }`}>
                     {getInitials(student.firstName, student.lastName)}
                 </div>
