@@ -60,28 +60,28 @@ export default function Home() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-surface-muted">
-            <div className="max-w-md w-full">
+        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-green-900">
+            <div className="max-w-md w-full -mt-24 sm:-mt-32">
                 {/* Logo as Hero - centered above card */}
-                <div className="flex flex-col items-center mb-8">
+                <div className="flex flex-col items-center mb-4">
                     <Image
-                        src="/prospero-logo.png"
+                        src="/prospero-logo-light.png"
                         alt="Prospero Logo"
-                        width={400}
-                        height={133}
-                        className="w-64 h-auto mb-6"
+                        width={600}
+                        height={200}
+                        className="w-96 h-auto mb-0"
                         priority
                     />
 
                     {/* Tagline moved here */}
-                    <p className="text-center text-lg text-gray-700 max-w-sm mb-2">
+                    <p className="text-center text-lg text-emerald-50 max-w-sm mb-2">
                         Monitor student behaviors, track progress, and communicate effortlessly
                     </p>
                 </div>
 
                 {/* Login Card with tightened design */}
-                <div className="card border border-gray-100 shadow-soft">
-                    <h2 className="text-2xl font-semibold mb-6 text-center text-brand-dark">Sign in to your account</h2>
+                <div className="card bg-[#f9f3ea] border border-gray-100 shadow-soft">
+                    <h2 className="text-2xl font-semibold mb-6 text-center text-green-900">Sign in to your account</h2>
 
                     {error && (
                         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
@@ -124,7 +124,7 @@ export default function Home() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="btn btn-primary w-full"
+                            className="btn bg-green-900 hover:bg-green-800 text-white w-full"
                         >
                             {isLoading ? 'Signing in...' : 'Sign In'}
                         </button>
@@ -144,7 +144,7 @@ export default function Home() {
                     <button
                         onClick={handleGoogleLogin}
                         disabled={isLoading}
-                        className="btn btn-outline w-full flex items-center justify-center space-x-2 text-brand-dark border-brand-teal/20 hover:bg-brand-teal/5"
+                        className="btn btn-outline w-full flex items-center justify-center space-x-2 text-green-900 border-green-900/20 hover:bg-green-900/5"
                     >
                         <svg className="w-5 h-5" viewBox="0 0 24 24">
                             <path
@@ -170,7 +170,7 @@ export default function Home() {
                     {/* Sign Up Link */}
                     <p className="mt-5 text-center text-sm text-gray-700">
                         Don't have an account?{' '}
-                        <a href="/signup" className="text-brand-teal font-medium hover:underline">
+                        <a href="/signup" className="text-green-900 font-medium hover:underline">
                             Sign up
                         </a>
                     </p>
