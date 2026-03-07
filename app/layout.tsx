@@ -16,19 +16,21 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>
+            <body className="h-screen flex flex-col overflow-hidden bg-[#FAFAFA]">
                 <AuthProvider>
                     <Navbar />
-                    <main className="pb-24 w-full">{children}</main>
-                    <div className="fixed bottom-0 left-0 w-full bg-white border-t border-slate-200 z-50 py-3 flex justify-center items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+                    <main className="flex-1 overflow-hidden w-full relative">
+                        {children}
+                    </main>
+                    <footer className="h-12 bg-white border-t border-slate-200 z-50 py-2 flex justify-center items-center shadow-soft flex-shrink-0">
                         <Image
                             src="/Built at Bridgeview2.png"
                             alt="Built at Bridgeview Watermark"
-                            width={150}
-                            height={50}
+                            width={120}
+                            height={40}
                             className="object-contain"
                         />
-                    </div>
+                    </footer>
                 </AuthProvider>
             </body>
         </html>

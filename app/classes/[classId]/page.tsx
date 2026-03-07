@@ -197,7 +197,7 @@ export default function ClassDetailPage() {
     const rosterStudents = students.filter((s) => !focusStudentIds.includes(s.studentId));
 
     return (
-        <div className="h-[calc(100vh-101px)] flex flex-col bg-surface">
+        <div className="h-full flex flex-col bg-surface">
             {error && (
                 <div className="bg-rose-50 border-b border-rose-200 px-6 py-3">
                     <p className="text-rose-600 font-medium">{error}</p>

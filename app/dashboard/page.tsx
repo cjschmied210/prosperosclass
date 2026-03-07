@@ -101,7 +101,7 @@ export default function Dashboard() {
     const totalStudents = Object.values(studentCounts).reduce((a, b) => a + b, 0);
 
     return (
-        <div className="min-h-screen bg-green-900 pb-12">
+        <div className="h-full bg-green-900 overflow-y-auto pb-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Header with inline Create button */}
                 <div className="flex items-center justify-between mb-8">

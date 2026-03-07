@@ -60,7 +60,7 @@ export default function Home() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-green-900">
+        <div className="flex flex-col items-center justify-center h-full px-4 bg-green-900 overflow-y-auto">
             <div className="max-w-md w-full -mt-24 sm:-mt-32">
                 {/* Logo as Hero - centered above card */}
                 <div className="flex flex-col items-center mb-4">
