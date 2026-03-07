@@ -79,10 +79,10 @@ export default function MasterRoster({
                         placeholder="Search students..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full px-4 py-2.5 text-sm rounded-xl bg-slate-50 border border-slate-200 text-slate-700 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm"
+                        className="w-full px-3 py-1.5 text-sm rounded-lg bg-amber-900/40 border border-amber-700/40 text-gray-400 placeholder-gray-400/60 focus:outline-none focus:ring-1 focus:ring-amber-500/50"
                     />
                     <svg
-                        className="w-5 h-5 text-slate-400 absolute right-3 top-2.5"
+                        className="w-5 h-5 text-gray-400 absolute right-3 top-2.5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -199,7 +199,7 @@ export default function MasterRoster({
                         onClick={() => setIsDeleteMode(!isDeleteMode)}
                         className={`w-full flex items-center justify-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${isDeleteMode
                             ? 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                            : 'text-slate-800 hover:bg-slate-100'
+                            : 'text-slate-800 hover:bg-white/10'
                             }`}
                     >
                         {isDeleteMode ? (
